@@ -19,16 +19,88 @@
     </body>
     <script>
 
-        //computer turn
-        function computerPlay() {
-            return Math.floor(Math.random()*3);
-        }
-        
         var testButton = document.getElementById('test');
         testButton.onclick = testClick;
 
         function testClick() {
-            console.log(computerPlay());
+            //playRound(humanChoice(), computerPlay())
+            //console.log(computerPlay());
+            //humanChoice();
+            console.log(addHumanScore(humanScore));
         }
+
+        function humanTurn() {
+            var playerChoice = prompt("Rock, Paper, or Scissors?").toLowerCase();
+            //console.log(playerChoice);
+            //console.log(verifySelection(playerChoice));
+            return playerChoice;
+        }
+
+        function verifySelection(choice) {
+            if ((choice == 'rock' || choice == 'paper' || choice == 'scissors')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function compTurn() {
+             var compChoice = Math.floor(Math.random()*3);
+            if (compChoice == 0)
+                return "rock";
+            if (compChoice == 1)
+                return "paper";
+            if (compChoice == 2)
+                return "scissors";
+        }
+
+        function addHumanScore(score) {
+            humanScore = score+1;
+            return humanScore;
+        }
+
+        function addCompScore(score) {
+            compScore = score+1;
+            return compScore;
+        }
+
+        function printResult(humanChoice, compChoice) {
+            console.log('Human plays: ', humanChoice)
+            console.log('Computer plays: ', compChoice)
+        }
+
+        function evaluateResult(humanChoice, compChoice) {
+            if (humanChoice == compChoice) {
+                console.log('Tie, Go Again');
+            }
+            if ((humanChoice == 'rock' && compChoice == 'scissors') || (humanChoice == 'paper' && compChoice == 'rock') || (humanChoice == 'scissors' && compChoice == 'paper')) {
+                
+            }
+        }
+
+        function playRound(humanChoice, compChoice) {
+           evaluateResult(humanChoice, compChoice);
+           printResult(humanChoice, compChoice);
+           
+            }
+
+            function titleScreen() {
+                console.log('Welcome, Human.  Let\'s play \"Paper, Rock, Scissors\".  First to 3 wins!')
+            }
+
+            //game loop
+
+            var playAgain = true;
+            var humanScore = 0;
+            var compScore = 0;
+
+            // //titleScreen();
+            // while (playAgain) {
+            //     do {
+            //         playRound(humanTurn(), compTurn());
+
+            //     } while (humanScore < 3 && compScore < 3);
+            // }
+
     </script>
 </html>
