@@ -6,14 +6,29 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
+        <title>ODIN RPS Game - Console</title>
+        <meta name="description" content="Console Rock Paper Scissor Game">
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
+        <h1>Open the browser console to play</h1>
+        <button id="test">test</button>
     </body>
+    <script>
+
+        //computer turn
+        function computerPlay() {
+            return Math.floor(Math.random()*3);
+        }
+        
+        var testButton = document.getElementById('test');
+        testButton.onclick = testClick;
+
+        function testClick() {
+            console.log(computerPlay());
+        }
+    </script>
 </html>
